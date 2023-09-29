@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:islami/modul/Quran/QuranView.dart';
 
-class QuranDetiels extends StatelessWidget {
+class QuranDetiels extends StatefulWidget {
   static const routeName = "quran";
 
-  const QuranDetiels({super.key});
+  QuranDetiels({super.key});
 
   @override
+  State<QuranDetiels> createState() => _QuranDetielsState();
+}
+
+class _QuranDetielsState extends State<QuranDetiels> {
+  @override
   Widget build(BuildContext context) {
+    var arg = ModalRoute.of(context)?.settings.arguments as quranDetail;
+    if (contant.isEmpty) readFile(arg.suraNum);
     var mediaQuery = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     return Container(
@@ -29,7 +38,7 @@ class QuranDetiels extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("suraName", style: theme.textTheme.bodyLarge),
+                Text(" سورة${arg.suraName}", style: theme.textTheme.bodyLarge),
                 SizedBox(
                   width: 4,
                 ),
@@ -46,13 +55,28 @@ class QuranDetiels extends StatelessWidget {
               color: theme.primaryColor,
               height: 10,
             ),
-            Text(
-              'datajjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj',
-              style: theme.textTheme.bodySmall,
+            Expanded(
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) => Text(
+                  contant,
+                  style: theme.textTheme.bodySmall,
+                  textAlign: TextAlign.center,
+                ),
+              ),
             )
           ]),
         ),
       ),
     );
+  }
+
+  String contant = '';
+  List<String> all = [];
+
+  readFile(String index) async {
+    String text = await rootBundle.loadString('assets/files/$index.txt');
+    setState(() {
+      all = contant.split("\n");
+    });
   }
 }
