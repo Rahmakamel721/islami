@@ -75,6 +75,8 @@ class _QuranDetielsState extends State<QuranDetiels> {
 
   readFile(String index) async {
     String text = await rootBundle.loadString('assets/files/$index.txt');
+    contant = text;
+
     setState(() {
       all = contant.split("\n");
     });
