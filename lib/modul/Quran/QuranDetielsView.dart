@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/modul/Quran/QuranView.dart';
 
 class QuranDetiels extends StatefulWidget {
@@ -25,7 +26,7 @@ class _QuranDetielsState extends State<QuranDetiels> {
         fit: BoxFit.fill,
       )),
       child: Scaffold(
-        appBar: AppBar(title: Text("إسلامي")),
+        appBar: AppBar(title: Text(AppLocalizations.of(context)!.ilami)),
         body: Container(
           padding: EdgeInsets.symmetric(horizontal: 15, vertical: 40),
           margin: EdgeInsets.only(right: 30, left: 30, top: 30, bottom: 120),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:islami/modul/Hadeth/HadeathDetielsView.dart';
 
 class HadethView extends StatefulWidget {
@@ -31,7 +32,7 @@ class _HadethViewState extends State<HadethView> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text(
-              "الأحاديث ",
+              AppLocalizations.of(context)!.hadeath,
               style: theme.textTheme.bodyMedium,
             )
           ],
