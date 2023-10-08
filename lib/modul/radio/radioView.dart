@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class radioView extends StatelessWidget {
   const radioView({super.key});
@@ -6,7 +7,7 @@ class radioView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text('radioView',
+      child: Text(AppLocalizations.of(context)!.radio,
           style: TextStyle(
             fontSize: 60,
             fontWeight: FontWeight.w500,
